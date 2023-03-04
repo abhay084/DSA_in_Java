@@ -64,6 +64,19 @@ public class DoublyLL {
         System.out.println("null");
     }
 
+    public void insertBeg(int val){
+        ListNode newNode = new ListNode(val);
+
+        if (isEmpty()){
+            tail = newNode;
+        }
+        else {
+            head.previous = newNode;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+
     public static void main(String[] args) {
         DoublyLL dll = new DoublyLL();
         dll.insertlast(10);
@@ -73,6 +86,8 @@ public class DoublyLL {
 
         dll.displayForword();
         dll.displayBackward();
+        dll.insertBeg(55);
+        dll.displayForword();
 
     }
 }
