@@ -77,6 +77,19 @@ public class DoublyLL {
         head = newNode;
     }
 
+    public void insertAtEnd(int val){
+        ListNode newNode = new ListNode(val);
+
+        if (isEmpty()){
+            head = newNode;
+        }
+        else {
+            tail.next = newNode;
+        }
+        newNode.previous = tail;
+        tail = newNode;
+    }
+
     public static void main(String[] args) {
         DoublyLL dll = new DoublyLL();
         dll.insertlast(10);
@@ -87,6 +100,8 @@ public class DoublyLL {
         dll.displayForword();
         dll.displayBackward();
         dll.insertBeg(55);
+        dll.displayForword();
+        dll.insertAtEnd(44);
         dll.displayForword();
 
     }
