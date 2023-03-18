@@ -6,6 +6,8 @@ package DSA_JAVA.Tree.BinaryTree;
 // Traverse the left Subtree in Pre-order fashion
 // Traverse the right Sub-Tree in Pre-order fashion
 
+import java.util.Stack;
+
 public class PreOrderTraversal {
     private TreeNode root;
 
@@ -43,11 +45,35 @@ public class PreOrderTraversal {
         PreOrder(root.right);
     }
 
+    // Iterative PreOrder Traversal
+
+    public void iterativePreOrder(TreeNode root){
+        System.out.println();
+        if (root == null){
+            return;
+        }
+        Stack<TreeNode> st = new Stack<>();
+        st.push(root);
+        while (!st.isEmpty()){
+            TreeNode temp = st.pop();
+            System.out.print(temp.data + " ");
+
+            if (temp.right != null){
+                st.push(temp.right);
+            }
+            if (temp.left != null){
+                st.push(temp.left);
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
         PreOrderTraversal po = new PreOrderTraversal();
         po.createBinaryTree();
         po.PreOrder(po.root);
+
+        po.iterativePreOrder(po.root);
 
 
     }
