@@ -5,6 +5,8 @@ package DSA_JAVA.Tree.BinaryTree;
 // 2. Visit the root Node
 // 3. traverse the right sub tree
 
+import java.util.Stack;
+
 public class InorderTraversal {
 
     private TreeNode root;
@@ -37,6 +39,28 @@ public class InorderTraversal {
         third.right = seven;
     }
 
+    public void iterativeInOrder( TreeNode root){
+        System.out.println();
+        if (root == null){
+            return;
+        }
+        Stack<TreeNode> st = new Stack<>();
+
+        TreeNode temp = root;
+
+        while (!st.isEmpty() || temp != null){
+            if (temp!= null){
+                st.push(temp);
+                temp = temp.left;
+            }
+            else {
+                temp = st.pop();
+                System.out.print( temp.data + " ");
+                temp = temp.right;
+            }
+        }
+    }
+
     public void InOrder(TreeNode root){
         if (root == null){
             return;
@@ -52,5 +76,6 @@ public class InorderTraversal {
 
         it.createBinaryTree();
         it.InOrder(it.root);
+        it.iterativeInOrder(it.root);
     }
 }
