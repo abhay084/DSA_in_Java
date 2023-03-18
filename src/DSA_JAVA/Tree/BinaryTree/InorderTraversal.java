@@ -41,9 +41,7 @@ public class InorderTraversal {
         if (root == null){
             return;
         }
-        if (root.left != null){
-            InOrder(root.left);
-        }
+        InOrder(root.left);
         System.out.print(root.data + " ");
         InOrder(root.right);
 
