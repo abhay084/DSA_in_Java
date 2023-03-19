@@ -54,10 +54,30 @@ public class levelOrderTraversal {
         }
     }
 
+    public int findMax(TreeNode root){
+        if (root == null){
+            return Integer.MIN_VALUE;
+        }
+
+        int res = root.data;
+        int left = findMax(root.left);
+        int right= findMax(root.right);
+
+        if (left > res){
+            res = left;
+        }
+        if (right > res){
+            res = right;
+        }
+        return  res;
+    }
+
     public static void main(String[] args) {
         levelOrderTraversal lo = new levelOrderTraversal();
         lo.createBinaryTree();
         lo.levelorder(lo.root);
+        System.out.println();
+        System.out.println(lo.findMax(lo.root));
 
     }
 }
