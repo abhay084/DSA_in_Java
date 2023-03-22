@@ -31,6 +31,19 @@ public class BinarySearchTree {
         return root;
     }
 
+    public TreeNode SearchKey(TreeNode root,int key){
+        if (root == null || root.data == key){
+            return root;
+        }
+
+        if (key < root.data){
+            return SearchKey(root.left,key);
+        }
+        else {
+            return SearchKey(root.right,key);
+        }
+    }
+
     public void InOrder(TreeNode root){
         if (root == null){
             return;
@@ -49,7 +62,8 @@ public class BinarySearchTree {
         bt.insert(bt.root, 123);
 
         bt.InOrder(bt.root);
-
+        System.out.println();
+        bt.SearchKey(bt.root,123);
 
     }
 }
